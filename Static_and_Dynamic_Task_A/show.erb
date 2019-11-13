@@ -1,0 +1,39 @@
+<div class="list">
+  Veterinarian Details
+</div>
+
+<div class="pat-show">
+  <div class="pat-index-each">
+    <div class="show-image">
+      <img src="/images/vet.jpg" alt="">
+    </div>
+    <div class="show-text">
+      <p><%= @vet.format_name %></p>
+    </div>
+    <div class="buttons">
+      <form method="get" action="/vets/ <%= @vet.id %>/edit">
+        <input type="submit" value="Edit">
+      </form>
+      <form method="post" action="/vets/ <%= @vet.id %>/delete">
+        <input type="submit" value="Delete">
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="list">
+  Patients List
+</div>
+
+<div class="pat-show">
+  <% @patients.each do |patient| %>
+  <div class="pat-index-each">
+      <div class="show-image">
+        <img src="/images/<%= patient.pic %>" alt="">
+      </div>
+      <div class="show-text">
+        <a href="/patients/<%= patient.id %>/show"><%= patient.name %></a>
+      </div>
+  </div>
+  <% end %>
+</div>
